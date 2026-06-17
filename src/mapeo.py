@@ -1,4 +1,8 @@
 EXTENSIONES = {
     ".pdf": "Documentos",
-    ".jpg": "Imagenes"
+    ".docx": "Documentos",
+    ".txt": "Documentos",
+    ".jpg": "Imagenes",
+    ".png": "Imagenes",
+    ".mp4": "Videos"
 }
