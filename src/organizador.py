@@ -5,6 +5,7 @@ from src.mapeo import EXTENSIONES
 
 def obtener_categoria(extension):
     """Devuelve la carpeta correspondiente a la extensión."""
+    # Death label
     return EXTENSIONES.get(extension.lower(), "Otros")
 
 
