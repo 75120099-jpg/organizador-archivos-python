@@ -10,7 +10,7 @@ def test_obtener_categoria_conocida():
 
 def test_obtener_categoria_desconocida():
     """Prueba el comportamiento con extensiones no registradas."""
-    assert obtener_categoria(".xyz") == "Otros"
+    assert obtener_categoria(".xyz") == "Sin_Clasificar"
 
 
 def test_organizar_directorio(tmp_path):

@@ -6,7 +6,7 @@ from src.mapeo import EXTENSIONES
 def obtener_categoria(extension):
     """Devuelve la carpeta correspondiente a la extensión."""
     # Cambiamos "Otros" por "Sin_Clasificar" para evitar problemas de rutas
-    return EXTENSIONES.get(extension.lower(), "Sin Clasificar")
+    return EXTENSIONES.get(extension.lower(), "Sin_Clasificar")
 
 
 def organizar_directorio(ruta_directorio):
