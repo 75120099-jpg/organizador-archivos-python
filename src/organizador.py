@@ -1,7 +1,7 @@
 import os
 import shutil
 from src.mapeo import EXTENSIONES
-from src.database import guardar_registro
+from src.database import guardar_registro, inicializar_base_datos
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
