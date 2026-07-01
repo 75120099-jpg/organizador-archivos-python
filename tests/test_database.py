@@ -1,4 +1,4 @@
-from src.database import guardar_registro, obtener_registros
+from src.database import guardar_registro, obtener_registros, inicializar_base_datos
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
