@@ -6,12 +6,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
-def organizar_directorio(ruta_directorio):
-    engine = create_engine('sqlite:///historial_organizador.db')
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-
 def obtener_categoria(extension):
     """Devuelve la carpeta correspondiente a la extensión."""
     # Cambiamos "Otros" por "Sin_Clasificar" para evitar problemas de rutas
@@ -19,6 +13,9 @@ def obtener_categoria(extension):
 
 
 def organizar_directorio(ruta_directorio):
+    engine = create_engine('sqlite:///historial_organizador.db')
+    Session = sessionmaker(bind=engine)
+    session = Session()
     """Organiza los archivos del directorio especificado."""
     if not os.path.exists(ruta_directorio):
         return False
