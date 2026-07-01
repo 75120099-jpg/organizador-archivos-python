@@ -1,6 +1,15 @@
 import os
 import shutil
 from src.mapeo import EXTENSIONES
+from src.database import guardar_registro
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+def organizar_directorio(ruta_directorio):
+    engine = create_engine('sqlite:///historial_organizador.db')
+    Session = sessionmaker(bind=engine)
+    session = Session()
 
 
 def obtener_categoria(extension):
@@ -32,5 +41,7 @@ def organizar_directorio(ruta_directorio):
             os.makedirs(ruta_categoria)
 
         shutil.move(ruta_archivo, os.path.join(ruta_categoria, archivo))
+
+        guardar_registro(session, archivo, categoria)
 
     return True
