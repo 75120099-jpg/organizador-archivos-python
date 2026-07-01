@@ -6,6 +6,9 @@ from sqlalchemy.orm import sessionmaker
 def test_guardar_y_obtener_registro():
     engine = create_engine('sqlite:///:memory:')
     Session = sessionmaker(bind=engine)
+
+    inicializar_base_datos(engine)
+
     session = Session()
 
     guardar_registro(session, "foto.jpg", "Imagenes")
