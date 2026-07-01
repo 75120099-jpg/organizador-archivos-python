@@ -15,6 +15,9 @@ def obtener_categoria(extension):
 def organizar_directorio(ruta_directorio):
     engine = create_engine('sqlite:///historial_organizador.db')
     Session = sessionmaker(bind=engine)
+
+    inicializar_base_datos(engine)
+
     session = Session()
     """Organiza los archivos del directorio especificado."""
     if not os.path.exists(ruta_directorio):
