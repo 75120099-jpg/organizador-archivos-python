@@ -8,7 +8,7 @@ Base = declarative_base()
 
 class HistorialMovimiento(Base):
     __tablename__ = 'historial_archivos'
-    
+
     id = Column(Integer, primary_key=True)
     nombre_archivo = Column(String)
     categoria_destino = Column(String)
@@ -16,7 +16,8 @@ class HistorialMovimiento(Base):
 
 
 def inicializar_base_datos(engine):
-    """Crea las tablas en la base de datos si no existen (Ejecutar solo una vez)."""
+    """Crea las tablas en la base de datos si no existen
+    (Ejecutar solo una vez)."""
     Base.metadata.create_all(engine)
 
 
@@ -24,15 +25,15 @@ def guardar_registro(session, nombre, categoria):
     """Guarda un registro en la base de datos de forma segura."""
     try:
         nuevo_registro = HistorialMovimiento(
-            nombre_archivo=nombre, 
+            nombre_archivo=nombre,
             categoria_destino=categoria
         )
         session.add(nuevo_registro)
         session.commit()
     except Exception as e:
-        session.rollback() # Si falla, revertir para no corromper la BD
+        session.rollback()  # Si falla, revertir para no corromper la BD
         print(f"Error al guardar en base de datos: {e}")
-        raise # Relanzar el error para que las pruebas lo detecten
+        raise  # Relanzar el error para que las pruebas lo detecten
 
 
 def obtener_registros(session):
